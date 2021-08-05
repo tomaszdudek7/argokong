@@ -45,3 +45,10 @@ spec:
             backend:
               serviceName: echo
               servicePort: 80
+    - host: chaosgears.com
+      http:
+        paths:
+          - path: /baz
+            backend:
+              serviceName: echo
+              servicePort: 80
