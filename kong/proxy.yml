@@ -38,3 +38,10 @@ spec:
             backend:
               serviceName: echo
               servicePort: 80
+    - host: chaosgears.com
+      http:
+        paths:
+          - path: /foo
+            backend:
+              serviceName: echo
+              servicePort: 80

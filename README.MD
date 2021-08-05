@@ -1,4 +1,4 @@
-# Kong instalacja
+# 1) Kong instalacja
 * `minikube start`
 * `helm repo add kong https://charts.konghq.com`
 * `helm repo update`
@@ -18,9 +18,15 @@ a następnie użyć `minikube service -n kong <nazwa service>` i wyczytać adres
 
 włala
 
-# Argo instalacja
+# 2) Argo instalacja
 * `kubectl create -f ./argo/argo-namespace.yml`
 * `kubectl apply -n argocd -f ./argo/argo.yml`
 * `kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d` da ci twoje hasło do panelu admina
 * `kubectl port-forward svc/argocd-server -n argocd 8080:443`
 * zaloguj sie na localhost:8080 loginem `admin` i haslem tym co dostales 2 kroki wyzej
+
+# 3) Wpięcie Konga do Argo
+* `kubectl apply -n argocd -f ./argo/apps/kong.yml`
+* syncnij
+
+# 4) Edycja czegoś w Kongu

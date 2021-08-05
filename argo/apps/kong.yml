@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kong
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/tomaszdudek7/argokong.git
+    targetRevision: HEAD
+    path: kong
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kong
